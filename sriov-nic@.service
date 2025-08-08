@@ -1,0 +1,11 @@
+[Unit]
+Description=Enable SR-IOV and assign MACs on NIC %i
+After=network-pre.target
+Before=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/sriov-setup.sh %i
+
+[Install]
+WantedBy=multi-user.target
